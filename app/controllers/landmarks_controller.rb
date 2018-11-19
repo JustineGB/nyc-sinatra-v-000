@@ -28,8 +28,8 @@ class LandmarksController < ApplicationController
    @landmark = Landmark.find(params[:id])
    @landmark.update(params[:landmark]) #once you find the instance, then update that instance
    @landmark.save
-  redirect to "landmarks/#{@landmark.id}"
-end 
+   redirect to "landmarks/#{@landmark.id}"
+  end
 
 
 end
