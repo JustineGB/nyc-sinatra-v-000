@@ -24,7 +24,7 @@ class LandmarksController < ApplicationController
     erb :'/landmarks/edit'
   end
 
-  patch '/landmarks/:id' do #change this to a patch method?!
+  patch '/landmarks/:id' do
    @landmark = Landmark.find(params[:id])
    @landmark = Landmark.update(params[:landmark])
    @landmark.save
