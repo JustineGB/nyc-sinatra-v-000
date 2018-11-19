@@ -21,25 +21,55 @@ class FiguresController < ApplicationController
   post '/figures' do
   #binding.pry
     #@figure = Figure.create(params[:figure])
-    @figure = Figure.create(:name => params[:figure][:name])
+    #@figure = Figure.create(:name => params[:figure][:name])
     #if !params["landmark"]["name"].include?(landmark)
     #@figure.landmarks << Landmark.create(name: params["landmark"]["name"])
     #end
     #if !params["title"]["name"].empty?
       #@figure.titles << Title.create(name: params["title"]["name"])
     #end
-    if !params[:figure].keys.include?("landmark_id")
-      params[:figure]["landmark_id"] = []
-    end
-    @figure = Figure.find(params[:id])
-    @figure.update(params["figure"])
-    if !params["landmark"]["name"].empty?
-    @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
-    end
+  #  if !params[:figure].keys.include?("landmark_id")
+    #  params[:figure]["landmark_id"] = []
+  #  end
+  #  @figure = Figure.find(params[:id])
+  #  @figure.update(params["figure"])
+  #  if !params["landmark"]["name"].empty?
+  #  @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+  #  end
     #@figure.landmarks = Landmark.find_or_create_by(:name => params[:landmarks])
     #@figure.titles = Landmark.find_or_create_by(:name => params[:titles])
+  #  @figure.save
+  #  redirect to "figures/#{@figure.id}"
+  #end
+  post '/figures' do
+    @title = params[:title]
+    @title_ids = params[:figure][:title_ids]
+    @landmark = params[:landmark]
+    @landmark_ids = params[:figure][:landmark_ids]
+
+    @figure = Figure.create(:name => params[:figure][:name])
+    if !@title[:name].empty?
+      t = Title.create(:name => @title[:name])
+      @figure.titles << t
+    end
+    if @title_ids
+      @title_ids.each do |id|
+        t = Title.find(id)
+        @figure.titles << t
+      end
+    end
+    if !@landmark[:name].empty?
+      l = Landmark.create(:name => @landmark[:name])
+      @figure.landmarks << l
+    end
+    if @landmark_ids
+      @landmark_ids.each do |id|
+        l = Landmark.find(id)
+        @figure.landmarks << l
+      end
+    end
     @figure.save
-    redirect to "figures/#{@figure.id}"
+    redirect to "/figures/#{@figure.id}"
   end
 
   get '/figures/:id/edit' do
