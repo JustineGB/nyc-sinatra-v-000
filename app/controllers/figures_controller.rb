@@ -45,7 +45,7 @@ class FiguresController < ApplicationController
     @title_ids = params[:figure][:title_ids]
     @landmark = params[:landmark]
     @landmark_ids = params[:figure][:landmark_ids]
-
+    
     @figure = Figure.create(:name => params[:figure][:name])
     if !@title[:name].empty?
       t = Title.create(:name => @title[:name])
@@ -55,7 +55,7 @@ class FiguresController < ApplicationController
       @title_ids.each do |id|
         t = Title.find(id)
         @figure.titles << t
-      end
+    end
     end
     if !@landmark[:name].empty?
       l = Landmark.create(:name => @landmark[:name])
