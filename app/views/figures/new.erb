@@ -6,8 +6,8 @@
 
   <label>Choose an existing title:</label>
     <%@titles.each do |title|%>
-      <input id="title_<%= title.id %>"><%= title.name %> type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
-      <%=title.name%></input>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>">
+    <%= title.name %></input>
     <% end %><br></br>
   <label>and/or, create a new title:</label><br></br>
   <label>Title:</label><input type="text" name="title[name]"></input><br></br>
