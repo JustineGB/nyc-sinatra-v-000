@@ -21,9 +21,9 @@ class FiguresController < ApplicationController
       @figure.landmarks << Landmark.create(params[:landmark])
     end
     @figure.save
-    redirect to "figures/#{@figure.id}"
+    redirect to "figures"
   end
-  
+
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
     @landmarks = Landmark.all
