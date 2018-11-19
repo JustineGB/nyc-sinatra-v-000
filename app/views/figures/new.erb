@@ -14,13 +14,13 @@
 
 <br></br>
 
-  <label>Choose an existing landmark:</label>
+  <label>Current Landmark(s):</label>
     <%@landmarks.each do |landmark|%>
     <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>">
       <%=landmark.name%></input>
     <% end %><br></br>
-  <label>and/or, create a new landmark:</label><br></br>
-  <label>Landmark:</label><input type="text" name="landmark[name]"></input><br></br>
+  <label>Create a New Landmark:</label><br></br>
+  <label>Landmark:</label><input type="text" name="landmark[name]" id="landmark_name"></input><br></br>
   <label>Year Completed:</label><input type="text" name="landmark[year_completed]"></input><br></br>
 
 
