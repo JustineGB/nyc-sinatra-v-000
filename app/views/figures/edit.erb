@@ -16,7 +16,7 @@
 
     <label>Current Title(s):</label>
       <% @titles.each do |landmark|%>
-        <input type="checkbox" name="figure[title_id]" value="<%= title.id %>" id="title_<%= title.id %>"
+        <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>"
         <%='checked' if @figure.titles.include?(titles) %>>
         <%=title.name%></input>
       <% end %><br></br>
