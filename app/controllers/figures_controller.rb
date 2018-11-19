@@ -40,10 +40,9 @@ class FiguresController < ApplicationController
   patch '/figures/:id' do
     figure = Figure.find_by_id(params[:id])
     figure.name = params[:figure][:name]
-
     if params[:figure][:title_ids]
-        titles = params[:figure][:title_ids]
-        titles.each do |title|
+        @titles = params[:figure][:title_ids]
+        @titles.each do |title|
             figure.titles << Title.find(title)
         end
     end
