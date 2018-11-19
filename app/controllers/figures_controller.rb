@@ -39,7 +39,7 @@ class FiguresController < ApplicationController
 
   patch '/figures/:id' do
     figure = Figure.find_by_id(params[:id])
-    figure.name = params[:figure][:name]
+    #figure.name = params[:figure][:name]
     if params[:figure][:title_ids]
         @titles = params[:figure][:title_ids]
         @titles.each do |title|
@@ -47,13 +47,13 @@ class FiguresController < ApplicationController
         end
     end
     if params[:figure][:landmark_ids]
-        landmarks = params[:figure][:landmark_ids]
-        landmarks.each do |landmark|
+        @landmarks = params[:figure][:landmark_ids]
+        @landmarks.each do |landmark|
             figure.landmarks << Landmark.find(landmark)
         end
     end
     if !params[:landmark][:name].empty?
-        landmark = Landmark.create(params[:landmark])
+        @landmark = Landmark.create(params[:landmark])
         figure.landmarks << landmark
     end
     figure.save
