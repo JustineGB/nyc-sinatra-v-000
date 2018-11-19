@@ -6,8 +6,8 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do
-    @titles = Title.all
-    @landmarks = Landmark.all
+    #@titles = Title.all
+    #@landmarks = Landmark.all
     erb :'/figures/new'
   end
 
