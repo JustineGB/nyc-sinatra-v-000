@@ -16,7 +16,7 @@
 
   <label>Choose an existing landmark:</label>
     <%@landmarks.each do |landmark|%>
-      <input id="<%= landmark.name %>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id %>">
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>"> 
       <%=landmark.name%></input>
     <% end %><br></br>
   <label>and/or, create a new landmark:</label><br></br>
