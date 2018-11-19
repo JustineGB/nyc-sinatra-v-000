@@ -36,10 +36,10 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  patch '/figures/:id' do 
+  patch '/figures/:id' do
     figure = Figure.find_by_id(params[:id])
     figure.name = params[:figure][:name]
-    
+
     if params[:figure][:title_ids]
         titles = params[:figure][:title_ids]
         titles.each do |title|
