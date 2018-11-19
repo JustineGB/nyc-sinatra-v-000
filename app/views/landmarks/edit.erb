@@ -7,27 +7,6 @@
 <label><strong>Name:</strong></label><input type="text" name="landmark[name]" id="name" value="<%= @landmark.name %>"><br><br>
 <label><strong>Year Completed:</strong></label><input type="text" name="landmark[year_completed]" id="year_completed" value="<%= @landmark.year_completed %>"><br><br>
 
-<!--
-<label>Choose an existing figure:</label>
-  <% Figure.all.each do |figure|%>
-    <input id="<%= figure.name %>" type="checkbox" name="landmark[figure_id]" value="<%= figure.id %>" <%='checked' if @landmark.figure.id == figure.id %>>
-    <%=figure.name%></input>
-  <% end %><br></br>
-<label>and/or, create a new figure:</label>
-<label for="Figure Name">Figure Name:</label><input type="text" name="figure[name]"></input><br></br>
-
-<label>Choose an existing title:</label>
-  <% Title.all.each do |landmark|%>
-    <input id="<%= title.name %>" type="checkbox" name="landmark[title_id]" value="<%= title.id %>" <%='checked' if @landmark.title.id == title.id %>>
-    <%=title.name%></input>
-  <% end %><br></br>
-<label>and/or, create a new title:</label><br></br>
-<label for="Title Name">Title:</label><input type="text" name="title[name]"></input><br></br>
-<input type="submit" name="Create" value="Create New Figure">
-</form>
-<br></br>
--->
-
 <a class="button" href="/figures">Figures Index</a>
 <br></br>
 <a class="button" href="/">Home Page</a>
