@@ -7,6 +7,7 @@
 <label><strong>Name:</strong></label><input type="text" name="landmark[name]" id="name" value="<%= @landmark.name %>"><br><br>
 <label><strong>Year Completed:</strong></label><input type="text" name="landmark[year_completed]" id="year_completed" value="<%= @landmark.year_completed %>"><br><br>
 
+<!--
 <label>Choose an existing figure:</label>
   <% Figure.all.each do |figure|%>
     <input id="<%= figure.name %>" type="checkbox" name="landmark[figure_id]" value="<%= figure.id %>" <%='checked' if @landmark.figure.id == figure.id %>>
@@ -25,6 +26,8 @@
 <input type="submit" name="Create" value="Create New Figure">
 </form>
 <br></br>
+-->
+
 <a class="button" href="/figures">Figures Index</a>
 <br></br>
 <a class="button" href="/">Home Page</a>
