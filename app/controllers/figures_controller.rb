@@ -36,29 +36,28 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  patch '/figures/:id' do
-    @figure = Figure.find(params[:id])
-    @figure = Figure.update(params[:figure])
-    if !params[:title][:name].empty?
-      @figure.titles << Title.create(params[:title])
-    end
-    if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(params[:landmark])
-    end
-    @figure.save
-    redirect to "figures"
-    if !params[:figure].keys.include?("landmark_ids")
-      params[:figure][:landmark_ids] = []
-    end
+  patch '/figures/:id' do 
+    figure = Figure.find_by_id(params[:id])
+    figure.name = params[:figure][:name]
     
-    if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(name: params[:landmark][:name])
+    if params[:figure][:title_ids]
+        titles = params[:figure][:title_ids]
+        titles.each do |title|
+            figure.titles << Title.find(title)
+        end
+    end
+    if params[:figure][:landmark_ids]
+        landmarks = params[:figure][:landmark_ids]
+        landmarks.each do |landmark|
+            figure.landmarks << Landmark.find(landmark)
+        end
     end
     if !params[:landmark][:name].empty?
-     @figure.title << Title.create(name: params[:title][:name])
-
+        landmark = Landmark.create(params[:landmark])
+        figure.landmarks << landmark
     end
-    redirect to "figures/#{@figure.id}"
-  end
+    figure.save
+    redirect to "/figures/#{figure.id}"
+end
 
 end
