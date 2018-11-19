@@ -43,13 +43,13 @@ class FiguresController < ApplicationController
     if params[:figure][:title_ids]
         @titles = params[:figure][:title_ids]
         @titles.each do |title|
-            figure.titles << Title.find(title)
+            @figure.titles << Title.find(title)
         end
     end
     if params[:figure][:landmark_ids]
         @landmarks = params[:figure][:landmark_ids]
         @landmarks.each do |landmark|
-            figure.landmarks << Landmark.find(landmark)
+            @figure.landmarks << Landmark.find(landmark)
         end
     end
     if !params[:landmark][:name].empty?
