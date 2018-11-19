@@ -5,7 +5,7 @@
 <br></br>
 
   <label>Choose an existing title:</label>
-    <% Title.all.each do |title|%>
+    <%@titles.each do |title|%>
       <input id="<%= title.name %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>">
       <%=title.name%></input>
     <% end %><br></br>
@@ -15,7 +15,7 @@
 <br></br>
 
   <label>Choose an existing landmark:</label>
-    <% Landmark.all.each do |landmark|%>
+    <%@landmarks.each do |landmark|%>
       <input id="<%= landmark.name %>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id %>">
       <%=landmark.name%></input>
     <% end %><br></br>
