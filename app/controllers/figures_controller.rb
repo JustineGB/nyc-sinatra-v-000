@@ -41,7 +41,6 @@ class FiguresController < ApplicationController
   #  @figure.save
   #  redirect to "figures/#{@figure.id}"
   #end
-  post '/figures' do
     @title = params[:title]
     @title_ids = params[:figure][:title_ids]
     @landmark = params[:landmark]
