@@ -19,7 +19,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-  #binding.pry
+  binding.pry
     @figure = Figure.create(:name => params[:figure][:name])
     #if !params["landmark"]["name"].include?(landmark)
     #@figure.landmarks << Landmark.create(name: params["landmark"]["name"])
